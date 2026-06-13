@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, desc, func
 from pydantic import BaseModel
@@ -10,6 +10,7 @@ from ..models.community import ChatMessage, MessageType
 from ..models.gamification import Transaction, TransactionType
 from ..models.employee import Employee
 from ..agents.chat_agent import ChatAgent
+from ..services.teams_notifier import notify_broadcast
 from .auth import get_current_employee
 
 router = APIRouter(prefix="/community", tags=["community"])
@@ -153,6 +154,7 @@ async def chat(
 @router.post("/broadcast")
 async def broadcast(
     req: BroadcastRequest,
+    background_tasks: BackgroundTasks,
     db: AsyncSession = Depends(get_db),
     current_employee: Employee = Depends(get_current_employee),
 ):
@@ -169,4 +171,7 @@ async def broadcast(
     )
     db.add(msg)
     await db.commit()
+
+    background_tasks.add_task(notify_broadcast, req.content)
+
     return _fmt(msg)

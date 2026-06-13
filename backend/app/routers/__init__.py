@@ -4,8 +4,10 @@ from .bizconnect import router as bizconnect_router
 from .bizcocreate import router as bizcocreate_router
 from .gamification import router as gamification_router
 from .community import router as community_router
+from .teams import router as teams_router
 
 __all__ = [
     "auth_router", "bizshare_router", "bizconnect_router",
-    "bizcocreate_router", "gamification_router", "community_router"
+    "bizcocreate_router", "gamification_router", "community_router",
+    "teams_router"
 ]

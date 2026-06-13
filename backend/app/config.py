@@ -16,6 +16,8 @@ class Settings(BaseSettings):
     secret_key: str = "dev_secret_key"
     algorithm: str = "HS256"
     access_token_expire_minutes: int = 1440
+    teams_webhook_secret: str = ""
+    teams_incoming_webhook_url: str = ""
 
     class Config:
         env_file = ".env"

@@ -1,7 +1,8 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, func, desc
 from pydantic import BaseModel
+from collections import defaultdict
 from datetime import datetime, timezone
 import uuid
 
@@ -11,6 +12,7 @@ from ..models.gamification import (
     StoreItem, Redemption
 )
 from ..models.employee import Employee
+from ..services.teams_notifier import send_to_teams
 from .auth import get_current_employee
 
 router = APIRouter(prefix="/gamification", tags=["gamification"])
@@ -24,24 +26,29 @@ class RedeemRequest(BaseModel):
 async def leaderboard(db: AsyncSession = Depends(get_db)):
     result = await db.execute(
         select(Employee)
-        .where(Employee.is_active == True)
+        .where(Employee.is_active == True, Employee.is_admin == False)
         .order_by(desc(Employee.bizcoins))
         .limit(20)
     )
     employees = result.scalars().all()
+    if not employees:
+        return []
 
-    board = []
-    for idx, e in enumerate(employees):
-        badges_result = await db.execute(
-            select(EmployeeBadge, Badge)
-            .join(Badge, EmployeeBadge.badge_id == Badge.id)
-            .where(EmployeeBadge.employee_id == e.id)
-        )
-        badges = [
+    # Fetch all badges in ONE query instead of N queries
+    emp_ids = [e.id for e in employees]
+    badges_result = await db.execute(
+        select(EmployeeBadge, Badge)
+        .join(Badge, EmployeeBadge.badge_id == Badge.id)
+        .where(EmployeeBadge.employee_id.in_(emp_ids))
+    )
+    badges_by_emp: dict = defaultdict(list)
+    for eb, b in badges_result.all():
+        badges_by_emp[eb.employee_id].append(
             {"name": b.name, "icon": b.icon, "color": b.color}
-            for _, b in badges_result.all()
-        ]
-        board.append({
+        )
+
+    return [
+        {
             "rank": idx + 1,
             "id": e.id,
             "full_name": e.full_name,
@@ -49,10 +56,10 @@ async def leaderboard(db: AsyncSession = Depends(get_db)):
             "position": e.position,
             "avatar_url": e.avatar_url,
             "bizcoins": e.bizcoins or 0,
-            "badges": badges,
-        })
-
-    return board
+            "badges": badges_by_emp[e.id],
+        }
+        for idx, e in enumerate(employees)
+    ]
 
 
 @router.get("/my-stats")
@@ -122,6 +129,7 @@ async def list_store(db: AsyncSession = Depends(get_db)):
 @router.post("/redeem")
 async def redeem_item(
     req: RedeemRequest,
+    background_tasks: BackgroundTasks,
     db: AsyncSession = Depends(get_db),
     current_employee: Employee = Depends(get_current_employee),
 ):
@@ -155,6 +163,12 @@ async def redeem_item(
     db.add(redemption)
     db.add(tx)
     await db.commit()
+
+    notify_text = (
+        f"🎁 **{current_employee.full_name}** vừa đổi thành công **{item.name}** "
+        f"với {item.cost} BizCoins! 🎉"
+    )
+    background_tasks.add_task(send_to_teams, notify_text, "🛍️ BizGro — Đổi quà thành công")
 
     return {
         "message": f"Đổi quà thành công: {item.name}",

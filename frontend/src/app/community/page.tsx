@@ -101,7 +101,7 @@ export default function CommunityPage() {
 
   useEffect(() => {
     fetchFeed();
-    pollingRef.current = setInterval(fetchFeed, 5000);
+    pollingRef.current = setInterval(fetchFeed, 10000);
     return () => {
       if (pollingRef.current) clearInterval(pollingRef.current);
     };
