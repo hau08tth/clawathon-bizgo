@@ -34,7 +34,7 @@ STYLE_PROMPTS = {
 
 class ContentAgent:
     def __init__(self):
-        self.client = AsyncOpenAI(api_key=settings.openai_api_key)
+        self.client = AsyncOpenAI(api_key=settings.llm_api_key, base_url=settings.openai_base_url)
         self.model = settings.openai_model
         self.graph = self._build_graph()
 

@@ -7,11 +7,12 @@ class Settings(BaseSettings):
     app_version: str = "1.0.0"
     debug: bool = False
 
-    database_url: str = "postgresql+asyncpg://bizgro:bizgro_secret@localhost:5432/bizgro"
+    database_url: str = "sqlite+aiosqlite:///./bizgro.db"
     redis_url: str = "redis://localhost:6379"
 
-    openai_api_key: str = ""
-    openai_model: str = "gpt-4o-mini"
+    llm_api_key: str = ""
+    openai_base_url: str = "https://maas-llm-aiplatform-hcm.api.vngcloud.vn/v1"
+    openai_model: str = "qwen/qwen3.7-plus"
     secret_key: str = "dev_secret_key"
     algorithm: str = "HS256"
     access_token_expire_minutes: int = 1440

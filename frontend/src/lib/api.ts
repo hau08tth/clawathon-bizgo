@@ -72,3 +72,10 @@ export const gamificationApi = {
   redeem: (itemId: string) => api.post("/gamification/redeem", { item_id: itemId }),
   badges: () => api.get("/gamification/badges"),
 };
+
+// Community Chat
+export const communityApi = {
+  feed: () => api.get("/community/feed"),
+  chat: (message: string) => api.post("/community/chat", { message }),
+  broadcast: (content: string) => api.post("/community/broadcast", { content }),
+};

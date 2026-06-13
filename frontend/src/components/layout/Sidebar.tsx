@@ -5,8 +5,9 @@ import { cn, formatCoins } from "@/lib/utils";
 import { useAppStore } from "@/lib/store";
 import {
   Share2, Network, Lightbulb, Trophy, ShoppingBag,
-  LogOut, Coins, User, Rocket, ChevronRight
+  LogOut, Coins, User, ChevronRight, MessageSquare
 } from "lucide-react";
+import { ZalopayLogo } from "@/components/ZalopayLogo";
 
 const NAV_ITEMS = [
   {
@@ -59,6 +60,16 @@ const NAV_ITEMS = [
     bg: "bg-violet-50 hover:bg-violet-100",
     activeBg: "bg-violet-100 border-l-4 border-violet-500",
   },
+  {
+    label: "Community",
+    sublabel: "Chat & Hot Trends",
+    href: "/community",
+    icon: MessageSquare,
+    gradient: "gradient-bizconnect",
+    color: "text-blue-600",
+    bg: "bg-blue-50 hover:bg-blue-100",
+    activeBg: "bg-blue-100 border-l-4 border-blue-500",
+  },
 ];
 
 export default function Sidebar() {
@@ -75,16 +86,9 @@ export default function Sidebar() {
     <aside className="w-72 min-h-screen bg-white border-r border-gray-100 flex flex-col shadow-sm">
       {/* Logo */}
       <div className="p-6 border-b border-gray-100">
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-xl gradient-bizgro flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
-            <Rocket className="w-5 h-5 text-white" />
-          </div>
-          <div>
-            <h1 className="text-xl font-bold bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">
-              BizGro
-            </h1>
-            <p className="text-xs text-gray-400">Business Growth from Within</p>
-          </div>
+        <Link href="/" className="flex flex-col gap-0.5 group">
+          <ZalopayLogo size="md" />
+          <p className="text-xs text-gray-400">Business Growth from Within</p>
         </Link>
       </div>
 

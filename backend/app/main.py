@@ -7,7 +7,7 @@ from .database import init_db, AsyncSessionLocal
 from .config import settings
 from .routers import (
     auth_router, bizshare_router, bizconnect_router,
-    bizcocreate_router, gamification_router
+    bizcocreate_router, gamification_router, community_router
 )
 
 
@@ -116,6 +116,37 @@ async def seed_data():
 
         await db.commit()
 
+    # Seed broadcast messages
+    from .models.community import ChatMessage, MessageType
+    result = await db.execute(select(ChatMessage).where(ChatMessage.is_broadcast == True))
+    if not result.scalars().all():
+        broadcasts = [
+            ChatMessage(
+                id=str(uuid.uuid4()),
+                type=MessageType.SYSTEM,
+                sender_name="BizGro",
+                content="🎉 Chào mừng đến với BizGro Community! Đây là nơi bạn có thể theo dõi tin tức, hỏi về điểm số, hot trends và nhận hỗ trợ từ BizGro AI.",
+                is_broadcast=True,
+            ),
+            ChatMessage(
+                id=str(uuid.uuid4()),
+                type=MessageType.SYSTEM,
+                sender_name="BizGro",
+                content="🔥 Hot trend tuần này: ZaloPay Số Dư Sinh Lời đang được chia sẻ nhiều nhất! Tham gia BIZ-SHARE ngay để kiếm thêm BizCoins 💰",
+                is_broadcast=True,
+            ),
+            ChatMessage(
+                id=str(uuid.uuid4()),
+                type=MessageType.SYSTEM,
+                sender_name="BizGro",
+                content="👑 Bảng xếp hạng tháng này đang được cập nhật! Ai đạt Top 3 sẽ nhận phần thưởng đặc biệt. Hãy tích cực chia sẻ và kết nối nhé!",
+                is_broadcast=True,
+            ),
+        ]
+        for b in broadcasts:
+            db.add(b)
+        await db.commit()
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -144,6 +175,7 @@ app.include_router(bizshare_router)
 app.include_router(bizconnect_router)
 app.include_router(bizcocreate_router)
 app.include_router(gamification_router)
+app.include_router(community_router)
 
 
 @app.get("/health")

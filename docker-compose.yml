@@ -42,7 +42,6 @@ services:
     environment:
       DATABASE_URL: postgresql+asyncpg://bizgro:bizgro_secret@postgres:5432/bizgro
       REDIS_URL: redis://redis:6379
-      OPENAI_MODEL: gpt-4o-mini
     ports:
       - "8000:8000"
     depends_on:
@@ -64,7 +63,7 @@ services:
     environment:
       NEXT_PUBLIC_API_URL: http://localhost:8000
     ports:
-      - "3000:3000"
+      - "3000:8080"
     depends_on:
       - backend
     restart: unless-stopped

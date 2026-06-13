@@ -132,7 +132,7 @@ export default function BizConnectPage() {
             <div className="bg-cyan-50 border border-cyan-200 rounded-2xl p-4">
               <p className="text-sm text-cyan-800 font-medium">
                 💡 Thêm những người bạn biết đang làm ở các công ty khác.
-                AI sẽ phân tích và tìm cơ hội giới thiệu ZaloPay phù hợp nhất.
+                AI sẽ phân tích và tìm cơ hội giới thiệu Zalopay phù hợp nhất.
               </p>
             </div>
 

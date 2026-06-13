@@ -4,7 +4,8 @@ import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { authApi } from "@/lib/api";
 import { useAppStore } from "@/lib/store";
-import { Rocket, Mail, Lock, Eye, EyeOff } from "lucide-react";
+import { Mail, Lock, Eye, EyeOff } from "lucide-react";
+import { ZalopayLogo } from "@/components/ZalopayLogo";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("demo@zalopay.vn");
@@ -44,14 +45,9 @@ export default function LoginPage() {
       {/* Left panel */}
       <div className="hidden lg:flex lg:w-1/2 gradient-bizgro flex-col items-center justify-center p-12 text-white">
         <div className="max-w-md">
-          <div className="flex items-center gap-4 mb-8">
-            <div className="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center">
-              <Rocket className="w-8 h-8 text-white" />
-            </div>
-            <div>
-              <h1 className="text-4xl font-black">BizGro</h1>
-              <p className="text-white/70">Business Growth from Within</p>
-            </div>
+          <div className="flex flex-col gap-1 mb-8">
+            <ZalopayLogo size="xl" dark />
+            <p className="text-white/70">Business Growth from Within</p>
           </div>
           <h2 className="text-3xl font-bold mb-4">
             Khi mỗi nhân viên là một động cơ tăng trưởng
@@ -81,11 +77,11 @@ export default function LoginPage() {
         <div className="w-full max-w-md">
           <div className="bg-white rounded-3xl shadow-xl p-8">
             <div className="text-center mb-8">
-              <div className="w-14 h-14 gradient-bizgro rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <Rocket className="w-7 h-7 text-white" />
+              <div className="flex justify-center mb-4">
+                <ZalopayLogo size="lg" />
               </div>
               <h2 className="text-2xl font-bold text-gray-900">
-                {isRegister ? "Tạo tài khoản" : "Đăng nhập BizGro"}
+                {isRegister ? "Tạo tài khoản" : "Đăng nhập"}
               </h2>
               <p className="text-gray-500 text-sm mt-1">
                 {isRegister ? "Tham gia cộng đồng tăng trưởng" : "Chào mừng trở lại!"}
