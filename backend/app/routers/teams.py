@@ -13,7 +13,7 @@ from ..models.employee import Employee
 from ..models.gamification import Transaction, TransactionType
 from ..models.campaign import Campaign
 from ..agents.chat_agent import ChatAgent
-from ..services.teams_notifier import send_to_teams
+from ..services.teams_notifier import send_to_teams, send_chat_answer
 from ..config import settings
 
 router = APIRouter(prefix="/teams", tags=["teams"])
@@ -118,8 +118,7 @@ async def _answer_and_notify(question: str, user_name: str) -> None:
     context = await _build_context()
     context["user_name"] = user_name
     answer = await _chat_agent.respond(question, context, [])
-    text = f"**{user_name}** hỏi: _{question}_\n\n{answer}"
-    await send_to_teams(text, title="🤖 BizGro AI")
+    await send_chat_answer(question, user_name, answer)
 
 
 @router.post("/webhook")

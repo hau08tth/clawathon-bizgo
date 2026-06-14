@@ -51,7 +51,7 @@ class ContentAgent:
         platform_desc = PLATFORM_PROMPTS.get(state["platform"], state["platform"])
         style_desc = STYLE_PROMPTS.get(state["social_style"], state["social_style"])
 
-        prompt = f"""Bạn là AI Content Creator chuyên nghiệp cho ZaloPay.
+        prompt = f"""Bạn là AI Content Creator chuyên nghiệp cho Zalopay.
 
 Thông tin nhân viên:
 - Tên: {state["employee_name"]}
@@ -70,7 +70,7 @@ Mỗi bài phải:
 1. Tự nhiên như chính người dùng viết, không phải quảng cáo cứng
 2. Có hook mạnh ở đầu
 3. Kết thúc bằng CTA (call-to-action) nhẹ nhàng
-4. Phù hợp với ZaloPay Fintech context
+4. Phù hợp với Zalopay Fintech context
 5. Độ dài: Facebook 150-200 chữ, LinkedIn 200-300 chữ, TikTok 80-120 chữ
 
 Trả về JSON với format:

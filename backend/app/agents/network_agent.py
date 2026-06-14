@@ -46,14 +46,14 @@ Nhân viên: {state["employee_name"]} - {state["employee_position"]} ({state["de
 Danh sách liên hệ của nhân viên:
 {contacts_text}
 
-Chân dung khách hàng mục tiêu (ICP) của ZaloPay:
+Chân dung khách hàng mục tiêu (ICP) của Zalopay:
 {targets_text}
 
 Hãy phân tích và tìm ra các "Cặp trùng khớp hoàn hảo" (matches) giữa danh sách liên hệ và khách hàng mục tiêu.
 
 Với mỗi match, hãy giải thích:
 1. Tại sao đây là cơ hội tốt
-2. Pain points của công ty họ mà ZaloPay có thể giải quyết
+2. Pain points của công ty họ mà Zalopay có thể giải quyết
 3. Mức độ phù hợp (score 1-10)
 
 Trả về JSON:
@@ -94,7 +94,7 @@ Trả về JSON:
 
 Lý do match: {m.get("match_reason")}
 Pain points: {m.get("pain_points")}
-Giải pháp ZaloPay: {m.get("zalopay_solution")}
+Giải pháp Zalopay: {m.get("zalopay_solution")}
 
 Tạo:
 1. Ice-breaker message (tin nhắn đầu tiên, thân thiện, không bán hàng ngay) - 50-80 chữ

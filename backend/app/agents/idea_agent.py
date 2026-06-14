@@ -38,7 +38,7 @@ class IdeaAgent:
         return workflow.compile()
 
     async def _enhance_idea(self, state: IdeaState) -> dict:
-        prompt = f"""Bạn là AI Business Analyst chuyên nghiệp cho ZaloPay Fintech.
+        prompt = f"""Bạn là AI Business Analyst chuyên nghiệp cho Zalopay Fintech.
 
 Nhân viên: {state["employee_name"]} ({state["department"]})
 Ý tưởng thô: {state["raw_idea"]}
@@ -67,7 +67,7 @@ Viết bằng tiếng Việt, chuyên nghiệp nhưng dễ hiểu. Khoảng 400-
     async def _market_analysis(self, state: IdeaState) -> dict:
         prompt = f"""Dựa trên ý tưởng: {state["raw_idea"]}
 
-Hãy phân tích thị trường và tạo dự phóng doanh thu cho ZaloPay với:
+Hãy phân tích thị trường và tạo dự phóng doanh thu cho Zalopay với:
 
 1. Quy mô thị trường (Market Size)
    - TAM (Total Addressable Market)
@@ -99,7 +99,7 @@ Dùng số liệu thực tế của thị trường Fintech Việt Nam. Viết n
         }
 
     async def _evaluate_idea(self, state: IdeaState) -> dict:
-        prompt = f"""Đánh giá ý tưởng sau theo tiêu chí của ZaloPay Ban Giám Đốc:
+        prompt = f"""Đánh giá ý tưởng sau theo tiêu chí của Zalopay Ban Giám Đốc:
 
 Ý tưởng: {state["raw_idea"]}
 Proposal: {state["enhanced_proposal"][:500]}
