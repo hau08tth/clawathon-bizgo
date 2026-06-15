@@ -44,12 +44,17 @@ export default function BizSharePage() {
   const [sharing, setSharing] = useState(false);
   const [myPosts, setMyPosts] = useState<unknown[]>([]);
   const [tab, setTab] = useState<"generate" | "history">("generate");
+  const [loadingCampaigns, setLoadingCampaigns] = useState(true);
 
   useEffect(() => {
-    bizShareApi.campaigns().then(r => {
-      setCampaigns(r.data);
-      if (r.data.length > 0) setSelectedCampaign(r.data[0]); // auto-select first
-    });
+    setLoadingCampaigns(true);
+    bizShareApi.campaigns()
+      .then((r: { data: Campaign[] }) => {
+        setCampaigns(r.data);
+        if (r.data.length > 0) setSelectedCampaign(r.data[0]);
+      })
+      .catch(() => toast.error("Không tải được danh sách chiến dịch"))
+      .finally(() => setLoadingCampaigns(false));
     bizShareApi.myPosts().then(r => setMyPosts(r.data)).catch(() => {});
   }, []);
 
@@ -140,6 +145,14 @@ export default function BizSharePage() {
                   Chọn chiến dịch
                 </h3>
                 <div className="space-y-2">
+                  {loadingCampaigns ? (
+                    <div className="flex items-center justify-center py-6 text-gray-400">
+                      <div className="w-5 h-5 border-2 border-pink-400 border-t-transparent rounded-full animate-spin mr-2" />
+                      <span className="text-sm">Đang tải chiến dịch...</span>
+                    </div>
+                  ) : campaigns.length === 0 ? (
+                    <p className="text-sm text-gray-400 text-center py-4">Không có chiến dịch nào</p>
+                  ) : null}
                   {campaigns.map(c => (
                     <button
                       key={c.id}
