@@ -73,6 +73,8 @@ Mỗi bài phải:
 4. Phù hợp với Zalopay Fintech context
 5. Độ dài: Facebook 150-200 chữ, LinkedIn 200-300 chữ, TikTok 80-120 chữ
 
+**Lưu ý**: Tên thương hiệu "Zalopay" chỉ viết hoa chữ "Z" chữ "p" phải viết thường.
+
 Trả về JSON với format:
 {{
   "posts": [
