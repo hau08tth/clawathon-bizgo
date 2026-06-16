@@ -56,6 +56,8 @@ Với mỗi match, hãy giải thích:
 2. Pain points của công ty họ mà Zalopay có thể giải quyết
 3. Mức độ phù hợp (score 1-10)
 
+**Lưu ý**: Tên thương hiệu "Zalopay" chỉ viết hoa chữ "Z" chữ "p" phải viết thường.
+
 Trả về JSON:
 {{
   "matches": [

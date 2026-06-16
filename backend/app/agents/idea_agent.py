@@ -109,6 +109,8 @@ Chấm điểm (1-10) theo 3 tiêu chí:
 2. Chi phí - Hiệu quả (Cost-Efficiency): ROI > 3x trong 1 năm?
 3. Tiềm năng doanh số (Revenue Potential): Tác động đến Sales Volume > 5%?
 
+**Lưu ý**: Tên thương hiệu "Zalopay" chỉ viết hoa chữ "Z" chữ "p" phải viết thường.
+
 Trả về JSON:
 {{
   "feasibility_score": 7.5,
