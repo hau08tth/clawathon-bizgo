@@ -29,11 +29,11 @@ class IdeaAgent:
     def _build_graph(self) -> StateGraph:
         workflow = StateGraph(IdeaState)
         workflow.add_node("enhance_idea", self._enhance_idea)
-        workflow.add_node("market_analysis", self._market_analysis)
+        workflow.add_node("analyze_market", self._market_analysis)
         workflow.add_node("evaluate_idea", self._evaluate_idea)
         workflow.set_entry_point("enhance_idea")
-        workflow.add_edge("enhance_idea", "market_analysis")
-        workflow.add_edge("market_analysis", "evaluate_idea")
+        workflow.add_edge("enhance_idea", "analyze_market")
+        workflow.add_edge("analyze_market", "evaluate_idea")
         workflow.add_edge("evaluate_idea", END)
         return workflow.compile()
 
@@ -42,6 +42,8 @@ class IdeaAgent:
 
 Nhân viên: {state["employee_name"]} ({state["department"]})
 Ý tưởng thô: {state["raw_idea"]}
+
+**Lưu ý**: Tên thương hiệu "Zalopay" chỉ viết hoa chữ "Z" chữ "p" phải viết thường.
 
 Hãy "nhào nặn" ý tưởng này thành một Business Proposal hoàn chỉnh bao gồm:
 1. Tóm tắt điều hành (Executive Summary) - 2-3 câu súc tích
@@ -66,6 +68,8 @@ Viết bằng tiếng Việt, chuyên nghiệp nhưng dễ hiểu. Khoảng 400-
 
     async def _market_analysis(self, state: IdeaState) -> dict:
         prompt = f"""Dựa trên ý tưởng: {state["raw_idea"]}
+
+**Lưu ý**: Tên thương hiệu "Zalopay" chỉ viết hoa chữ "Z" chữ "p" phải viết thường.
 
 Hãy phân tích thị trường và tạo dự phóng doanh thu cho Zalopay với:
 
