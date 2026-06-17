@@ -4,47 +4,27 @@
 
 ---
 
-## 📌 Vấn đề
-Mỗi doanh nghiệp đang ngồi trên một mỏ vàng tăng trưởng nhưng chưa được khai thác.
-
-**95% nhân viên không thuộc bộ phận Sales**, nhưng họ lại sở hữu những tài sản quý giá nhất: 
-* Mạng lưới quan hệ thực tế.
-* Sự tin tưởng cá nhân từ bạn bè, đối tác.
-* Hiểu biết sâu sắc về sản phẩm.
-* Những ý tưởng sáng tạo có thể tạo ra giá trị mới.
-
-Tuy nhiên, phần lớn tiềm năng này đang bị bỏ ngỏ vì nhân viên thường **không biết bắt đầu từ đâu, thiếu công cụ hỗ trợ và thiếu động lực** để tham gia vào quá trình tăng trưởng chung.
+## 📌 Vấn đề cốt lõi
+Mọi doanh nghiệp đều đang lãng phí một "mỏ vàng" vô giá: **95% nhân sự không thuộc bộ phận Sales**. Họ sở hữu mạng lưới quan hệ thực, sự tin tưởng cao và hiểu sâu sản phẩm, nhưng tiềm năng này bị "đóng băng" hoàn toàn vì nhân viên thiếu công cụ, không biết bắt đầu từ đâu và thiếu động lực hành động. 
 
 ---
 
-## 💡 Giải pháp
-**BizGro** là nền tảng AI Agent được xây dựng trên **GreenNode AgentBase**, giúp mọi nhân viên trong doanh nghiệp đều có thể đóng góp trực tiếp và dễ dàng vào sự tăng trưởng của công ty thông qua 4 tính năng lõi:
+## 💡 Giải pháp đột phá
+**BizGro** là nền tảng AI Agent tiên phong phá vỡ rào cản phòng ban để biến 100% nhân sự thành lực lượng tăng trưởng tổng lực nhờ 4 trụ cột:
 
-### 🚀 BIZ-SHARE
-> Tạo nội dung cá nhân hóa và chia sẻ sản phẩm chỉ trong vài giây bằng AI.
-
-### 🤝 BIZ-CONNECT
-> Biến mạng lưới quan hệ cá nhân thành nguồn khách hàng tiềm năng (Leads) có thể theo dõi và đo lường được.
-
-### 💡 BIZ-COCREATE
-> Chuyển các ý tưởng thô thành đề xuất kinh doanh hoàn chỉnh nhờ hệ thống phân tích và đánh giá tự động.
-
-### 🎯 Community & Teams Bot
-> AI Coach hoạt động theo thời gian thực (real-time), gợi ý chính xác cho nhân viên biết hành động nào sẽ tạo ra tác động lớn nhất.
+* **🚀 BIZ-SHARE:** AI tự động hóa việc sáng tạo và cá nhân hóa nội dung chia sẻ sản phẩm trong vài giây.
+* **🤝 BIZ-CONNECT:** Số hóa và đo lường mạng lưới quan hệ cá nhân thành nguồn khách hàng tiềm năng chất lượng.
+* **💡 BIZ-COCREATE:** Biến ý tưởng thô của nhân viên thành đề xuất kinh doanh hoàn chỉnh nhờ AI thẩm định tự động.
+* **🎯 Community & Teams Bot:** "AI Coach" thời gian thực, thúc đẩy hành động có tác động lớn nhất.
 
 ---
 
-## 💎 Giá trị mang lại
+## 💎 Giá trị độc bản
+Bằng cách kết hợp **AI Agent, Gamification và cơ chế BizCoins minh bạch**, BizGro thay đổi hoàn toàn cuộc chơi: chuyển dịch doanh nghiệp từ áp lực doanh thu đè nặng lên 5% phòng Sales sang **Mô hình Tăng trưởng Toàn diện**. 
 
-BizGro loại bỏ hoàn toàn rào cản giữa nhân viên và sự tăng trưởng của doanh nghiệp bằng cách kết hợp:
-`AI` + `Gamification (Trò chơi hóa)` + `BizCoins` + `Hệ thống ghi nhận minh bạch`
+Sản phẩm được lan tỏa tự nhiên, khách hàng đến từ nguồn lực uy tín nhất, và đổi mới sáng tạo diễn ra liên tục từ dòng máu nội bộ.
 
-| Mô hình truyền thống | Mô hình tăng trưởng cùng BizGro |
-| :--- | :--- |
-| Gánh nặng doanh thu đè nặng lên 5% nhân sự thuộc phòng Sales. | Kích hoạt sức mạnh tổng lực của **100% bộ phận** trong tổ chức. |
-| Tiềm năng truyền thông và quan hệ của nhân viên bị lãng quên. | Lan tỏa sản phẩm, tìm kiếm khách hàng và đột phá ý tưởng tự động. |
-
-> **Cốt lõi:** Tăng trưởng không còn là nhiệm vụ của riêng một phòng ban. Với BizGro, cả công ty trở thành một đội ngũ tăng trưởng đồng nhất được vận hành và tối ưu bởi AI.
+> 🔥 **Cốt lõi:** Với BizGro, tăng trưởng không còn là nhiệm vụ của một phòng ban — **Cả công ty là một động cơ tăng trưởng được vận hành bởi AI.**
 
 ---
 
