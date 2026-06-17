@@ -2,11 +2,29 @@
 
 > Every Employee a Growth Engine — Khi mỗi nhân viên là một động cơ tăng trưởng
 
-BizGro là nền tảng gamification giúp nhân viên Zalopay tham gia vào tăng trưởng kinh doanh thông qua 3 module AI và một cộng đồng chatbot tương tác — tất cả được điều phối bởi kiến trúc multi-agent.
+---
+
+## Mô tả ngắn (300 từ — dùng cho form nộp bài)
+
+**Vấn đề:** Đội ngũ Sales tại các công ty fintech như Zalopay chỉ chiếm ~5% nhân sự, nhưng phải gánh toàn bộ mục tiêu tăng trưởng. 95% nhân viên còn lại — kỹ sư, designer, vận hành — có mạng lưới quan hệ rộng và hiểu sản phẩm sâu, nhưng không có công cụ hay động lực để biến điều đó thành doanh thu thực sự. Kết quả: nguồn lực tăng trưởng khổng lồ bị lãng phí mỗi ngày.
+
+**Người dùng:** Toàn bộ nhân viên Zalopay — không chỉ Sales — đặc biệt là những người có mạng lưới quan hệ B2B hoặc ý tưởng cải tiến sản phẩm nhưng chưa có kênh để hành động.
+
+**Giải pháp AI:** BizGro là nền tảng multi-agent biến mỗi nhân viên thành một "growth engine" thông qua 4 agent AI chuyên biệt:
+
+- **ContentAgent (BIZ-SHARE):** Nhân viên chọn chiến dịch, AI tự động tạo 3 phiên bản bài viết được cá nhân hóa theo phong cách của từng người (hài hước / chuyên nghiệp / tâm sự) kèm mã affiliate để track chuyển đổi — từ 0 đến bài viết sẵn sàng đăng chỉ trong 30 giây.
+
+- **NetworkAgent (BIZ-CONNECT):** Nhân viên nhập danh sách liên hệ, AI phân tích và match với ICP của Zalopay, tự động viết Ice-breaker và Pitching Script cá nhân hóa — biến mạng lưới quan hệ thành pipeline sales thực sự.
+
+- **IdeaAgent (BIZ-COCREATE):** Nhân viên gửi ý tưởng thô bằng ngôn ngữ tự nhiên, AI qua 3 bước (tăng cường → phân tích thị trường → chấm điểm) tự động nâng thành Business Proposal hoàn chỉnh gửi lên Ban Giám Đốc.
+
+- **ChatAgent (Community + Teams Bot):** Chatbot context-aware tích hợp ngay trong ứng dụng và Microsoft Teams — trả lời câu hỏi về điểm, trends, chiến dịch, phần thưởng theo thời gian thực.
+
+**Giá trị mang lại:** Toàn bộ hành động được gamify với BizCoins — nhân viên kiếm điểm, leo bảng xếp hạng, đổi quà thực tế. BizGro không chỉ là công cụ AI — đây là hệ sinh thái tăng trưởng từ bên trong, nơi mỗi nhân viên đều có thể đóng góp vào doanh thu của công ty.
 
 ---
 
-## Kiến trúc tổng quan
+## Kiến trúc hệ thống
 
 ```
 BizGro Platform
@@ -22,8 +40,6 @@ BizGro Platform
 ├── SQLite (aiosqlite)  → Persistent storage
 └── Nginx              → Reverse proxy (port 8080)
 ```
-
-### Luồng xử lý
 
 ```
 Browser / Teams
@@ -47,60 +63,44 @@ Browser / Teams
 
 ### 1. BIZ-SHARE — AI Social Selling Hub
 
-Nhân viên chọn chiến dịch từ Commercial, AI tự động tạo 3 phiên bản bài viết phù hợp với phong cách cá nhân, kèm mã affiliate để track chuyển đổi.
-
-- Chọn chiến dịch (Số Dư Sinh Lời, Business, QR Payment...)
-- Chọn nền tảng: Facebook / LinkedIn / TikTok
-- AI sinh 3 biến thể: hài hước · chuyên nghiệp · tâm sự
-- Tự động sinh mã affiliate cá nhân
-- Track clicks & conversions
+- Chọn chiến dịch → chọn nền tảng (Facebook / LinkedIn / TikTok)
+- AI sinh 3 biến thể bài viết: hài hước · chuyên nghiệp · tâm sự
+- Mã affiliate cá nhân, track clicks & conversions
 - **+10 BizCoins** khi chia sẻ
 
-**Agent**: `ContentAgent` — LangGraph pipeline: `generate_posts → optimize_post`
+**Agent**: `ContentAgent` — LangGraph: `generate_posts → optimize_post`
 
 ### 2. BIZ-CONNECT — AI Referral Matchmaker
 
-Nhân viên nhập danh sách liên hệ, AI phân tích và match với Ideal Customer Profile của Zalopay, tự động tạo Ice-breaker và Pitching Script.
-
-- Nhập danh sách contact (tên, công ty, vị trí)
-- AI match với ICP (SME / Startup / Retail)
+- Nhập danh sách contact → AI match với ICP (SME / Startup / Retail)
 - Tạo Ice-breaker ngắn & Pitching Script đầy đủ
 - Track trạng thái: Matched → Introduced → Closed
 - **+200 BizCoins** khi giới thiệu thành công
 
-**Agent**: `NetworkAgent` — LangGraph pipeline: `analyze_contacts → generate_scripts`
+**Agent**: `NetworkAgent` — LangGraph: `analyze_contacts → generate_scripts`
 
 ### 3. BIZ-COCREATE — AI Idea Incubator
 
-Nhân viên gửi ý tưởng thô, AI qua 3 bước tự động nâng cấp thành Business Proposal hoàn chỉnh kèm phân tích thị trường và điểm đánh giá.
-
-- Gửi ý tưởng ngắn bằng ngôn ngữ tự nhiên
-- AI **tăng cường** thành Business Proposal (400–500 từ)
+- Gửi ý tưởng thô → AI **tăng cường** thành Business Proposal (400–500 từ)
 - AI **phân tích thị trường**: TAM/SAM/SOM, dự phóng doanh thu 12 tháng
-- AI **chấm điểm**: Khả thi · Chi phí · Tiềm năng doanh số (1–10)
-- Verdict: APPROVED / REVIEWING / REJECTED
+- AI **chấm điểm**: Khả thi · Chi phí · Tiềm năng (1–10), verdict APPROVED/REVIEWING/REJECTED
 - **+500 BizCoins** khi ý tưởng được duyệt
 
-**Agent**: `IdeaAgent` — LangGraph pipeline: `enhance_idea → analyze_market → evaluate_idea`
+**Agent**: `IdeaAgent` — LangGraph: `enhance_idea → analyze_market → evaluate_idea`
 
 ### 4. Community Chatbot — BizGro AI Assistant
 
-Kênh chat cộng đồng trong ứng dụng và tích hợp Microsoft Teams. Chatbot có context về leaderboard, hot trends, chiến dịch đang chạy và hướng dẫn kiếm BizCoins.
+- Chat trong ứng dụng, polling 10 giây, markdown rendering
+- **Teams Outgoing Webhook** HMAC-verified, phản hồi trong 5 giây
+- Context-aware: leaderboard, hot trends, campaigns, hướng dẫn kiếm BizCoins
 
-- Chat real-time trong ứng dụng (`/community`)
-- Nhận broadcast từ admin
-- Polling 10 giây để cập nhật tin nhắn mới
-- **Teams Outgoing Webhook**: HMAC-verified, trả lời ngay trong Teams channel
-- Teams callback URL: `https://endpoint-487619c8-18ad-448f-8267-268ddce4aae7.agentbase-runtime.aiplatform.vngcloud.vn/teams/webhook`
+**Agent**: `ChatAgent` — Direct LLM call với system prompt context-aware
 
-**Agent**: `ChatAgent` — Direct LLM call với system prompt chứa context (leaderboard top 5, trends, campaigns)
+### 5. Gamification Engine
 
-### 5. Gamification & Reward Engine
-
-- **BizCoins**: Hệ thống điểm thưởng xuyên suốt
-- **Leaderboard**: Bảng xếp hạng top 20 real-time
-- **Badges**: Chiến thần Lan tỏa · Đại sứ Kết nối · Nhà phát minh · Top Earner · Zalopay Star
-- **BizStore**: Đổi quà — Ngày phép (500 coins) · AirPods Pro (2000 coins) · Grab voucher · AWS cert...
+- **BizCoins** + **Leaderboard** top 20 real-time
+- **Badges**: Chiến thần Lan tỏa · Đại sứ Kết nối · Nhà phát minh...
+- **BizStore**: Đổi quà thực tế — ngày phép, voucher, AirPods Pro...
 
 ---
 
@@ -114,16 +114,12 @@ Kênh chat cộng đồng trong ứng dụng và tích hợp Microsoft Teams. Ch
 | LLM | `google/gemma-4-31b-it` via GreenNode MAAS |
 | Database | SQLite + SQLAlchemy 2.0 async (aiosqlite) |
 | Auth | JWT (HS256) + bcrypt, Teams HMAC-SHA256 |
-| Process mgmt | supervisord (backend + frontend + nginx) |
-| Proxy | Nginx 8080 → uvicorn 8000 / Next.js 3000 |
-| Container | Single Docker image (Python 3.12 base) |
+| Container | Single Docker image — supervisord + nginx + uvicorn + Next.js |
 | Deploy | GreenNode AgentBase Runtime |
 
 ---
 
 ## Deployment Architecture
-
-Toàn bộ ứng dụng chạy trong **một Docker container duy nhất**:
 
 ```
 Docker Container (port 8080 exposed)
@@ -136,90 +132,54 @@ Docker Container (port 8080 exposed)
 
 ### GreenNode AgentBase Runtimes
 
-| Runtime | URL | Dùng cho |
-|---------|-----|----------|
-| `clawathon-bizgo` | `https://endpoint-487619c8-18ad-448f-8267-268ddce4aae7.agentbase-runtime.aiplatform.vngcloud.vn` | Backend + Frontend combined |
-| `clawathon-bizgo-ui` | `https://endpoint-c807eb5c-098b-4a49-852a-3bc459004060.agentbase-runtime.aiplatform.vngcloud.vn` | Frontend only (trỏ vào backend trên) |
+| Runtime | URL |
+|---------|-----|
+| `clawathon-bizgo` (backend + frontend) | `https://endpoint-487619c8-18ad-448f-8267-268ddce4aae7.agentbase-runtime.aiplatform.vngcloud.vn` |
+| `clawathon-bizgo-ui` (frontend only) | `https://endpoint-c807eb5c-098b-4a49-852a-3bc459004060.agentbase-runtime.aiplatform.vngcloud.vn` |
 
 Container Registry: `vcr.vngcloud.vn/111480-abp111947`
-
-### Nginx timeout configuration
-
-| Route | Timeout | Lý do |
-|-------|---------|-------|
-| `POST /bizshare/generate-content` | 300s | 1 LLM call, token count lớn |
-| `~ ^/bizcocreate` | 300s | 3 LLM calls tuần tự |
-| Các route còn lại | 120s | Standard |
 
 ---
 
 ## API Endpoints
 
 ```
-# Auth
-POST   /auth/register
-POST   /auth/token               → JWT login
-GET    /auth/me
+POST   /auth/register  |  POST /auth/token  |  GET /auth/me
 
-# BIZ-SHARE
 GET    /bizshare/campaigns
-POST   /bizshare/generate-content    → ContentAgent (300s timeout)
-POST   /bizshare/share
-GET    /bizshare/my-posts
-GET    /bizshare/track/{affiliate_code}
+POST   /bizshare/generate-content       → ContentAgent (300s timeout)
+POST   /bizshare/share  |  GET /bizshare/my-posts
 
-# BIZ-CONNECT
-POST   /bizconnect/match             → NetworkAgent
+POST   /bizconnect/match                → NetworkAgent
 GET    /bizconnect/opportunities
 PATCH  /bizconnect/opportunities/{id}
 
-# BIZ-COCREATE
-POST   /bizcocreate/ideas            → IdeaAgent (300s timeout)
-GET    /bizcocreate/ideas            → ý tưởng của tôi
-GET    /bizcocreate/ideas/all        → tất cả (admin)
-GET    /bizcocreate/ideas/{id}
+POST   /bizcocreate/ideas               → IdeaAgent (300s timeout)
+GET    /bizcocreate/ideas  |  GET /bizcocreate/ideas/all
 
-# Gamification
-GET    /gamification/leaderboard
-GET    /gamification/my-stats
-GET    /gamification/store
-GET    /gamification/badges
+GET    /gamification/leaderboard  |  /my-stats  |  /store  |  /badges
 POST   /gamification/redeem
 
-# Community Chat
 GET    /community/feed
-POST   /community/chat               → ChatAgent
-POST   /community/broadcast          → admin only
+POST   /community/chat                  → ChatAgent
+POST   /community/broadcast             → admin only
 
-# Microsoft Teams
-POST   /teams/webhook                → HMAC-verified, ChatAgent
+POST   /teams/webhook                   → HMAC-verified, ChatAgent
 
-# System
-GET    /health
-GET    /docs                         → Swagger UI
+GET    /health  |  GET /docs
 ```
 
 ---
 
 ## Cài đặt & Chạy local
 
-### Prerequisites
-
-- Python 3.12+
-- Node.js 20+
-- GreenNode MAAS API key (hoặc bất kỳ OpenAI-compatible endpoint)
-
 ### Backend
 
 ```bash
 cd backend
-python -m venv venv
-source venv/bin/activate
+python -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
-
-cp .env.example .env
-# Điền OPENAI_API_KEY, OPENAI_BASE_URL, OPENAI_MODEL
-
+cp .env.example .env   # Điền OPENAI_API_KEY, OPENAI_BASE_URL, OPENAI_MODEL
 uvicorn app.main:app --reload --port 8000
 ```
 
@@ -242,64 +202,17 @@ Truy cập: `http://localhost:3000` · API docs: `http://localhost:8000/docs`
 
 ---
 
-## Deploy lên GreenNode AgentBase
-
-### Yêu cầu
-
-```bash
-git clone https://github.com/vngcloud/greennode-agentbase-skills.git
-cp -r greennode-agentbase-skills/.claude/skills/* ~/.claude/skills/
-
-export GREENNODE_CLIENT_ID="your-client-id"
-export GREENNODE_CLIENT_SECRET="your-client-secret"
-```
-
-### Build & Push
-
-```bash
-# Login Container Registry
-bash .claude/skills/agentbase/scripts/cr.sh credentials docker-login
-
-# Combined image (backend + frontend + nginx)
-docker build --platform linux/amd64 \
-  -t vcr.vngcloud.vn/111480-abp111947/clawathon-bizgo:latest .
-
-# Frontend-only image
-docker build --platform linux/amd64 \
-  --build-arg NEXT_PUBLIC_API_URL=https://endpoint-487619c8-18ad-448f-8267-268ddce4aae7.agentbase-runtime.aiplatform.vngcloud.vn \
-  -t vcr.vngcloud.vn/111480-abp111947/clawathon-bizgo-ui:latest \
-  -f frontend/Dockerfile frontend/
-
-docker push vcr.vngcloud.vn/111480-abp111947/clawathon-bizgo:latest
-docker push vcr.vngcloud.vn/111480-abp111947/clawathon-bizgo-ui:latest
-```
-
-### Update runtimes
-
-```bash
-bash .claude/skills/agentbase/scripts/runtime.sh update runtime-909ff08b-37e6-4b4f-af16-f237ba4d35d0 \
-  --image vcr.vngcloud.vn/111480-abp111947/clawathon-bizgo:latest \
-  --from-cr --env-file .env.deploy
-```
-
----
-
 ## Microsoft Teams Integration
 
 | Loại | Hướng | Mục đích |
 |------|-------|---------|
-| Incoming Webhook | BizGro → Teams | Thông báo: leaderboard, broadcast, coin award |
-| Outgoing Webhook | Teams → BizGro | Chatbot: nhân viên hỏi trong Teams channel |
+| Incoming Webhook | BizGro → Teams | Thông báo leaderboard, broadcast, coin award |
+| Outgoing Webhook | Teams → BizGro | Chatbot trong Teams channel |
 
 **Callback URL cho Outgoing Webhook:**
-
 ```
 https://endpoint-487619c8-18ad-448f-8267-268ddce4aae7.agentbase-runtime.aiplatform.vngcloud.vn/teams/webhook
 ```
-
-- HMAC-SHA256 signature verification (header `Authorization`)
-- Trả lời trong 5 giây (FastAPI BackgroundTasks)
-- Cùng `ChatAgent` với Community chat — context-aware
 
 ---
 
@@ -307,22 +220,10 @@ https://endpoint-487619c8-18ad-448f-8267-268ddce4aae7.agentbase-runtime.aiplatfo
 
 | Variable | Mô tả |
 |----------|-------|
-| `OPENAI_API_KEY` | API key cho LLM (GreenNode MAAS hoặc OpenAI) |
-| `OPENAI_BASE_URL` | LLM endpoint |
+| `OPENAI_API_KEY` | API key cho LLM |
+| `OPENAI_BASE_URL` | LLM endpoint (GreenNode MAAS hoặc OpenAI) |
 | `OPENAI_MODEL` | Model ID, VD: `google/gemma-4-31b-it` |
-| `DATABASE_URL` | SQLite URL, VD: `sqlite+aiosqlite:///./bizgro.db` |
+| `DATABASE_URL` | `sqlite+aiosqlite:///./bizgro.db` |
 | `SECRET_KEY` | JWT signing key |
 | `TEAMS_INCOMING_WEBHOOK_URL` | URL Incoming Webhook của Teams channel |
-| `TEAMS_WEBHOOK_SECRET` | HMAC secret cho Outgoing Webhook verification |
-
----
-
-## Seed Data
-
-Khi backend khởi động lần đầu, `main.py::seed_data()` tự động tạo:
-
-- 1 admin + 1 demo user + 19 nhân viên mẫu (đủ leaderboard)
-- 3 chiến dịch active (Số Dư Sinh Lời · Zalopay Business · QR Payment)
-- 5 badges (Chiến thần Lan tỏa · Đại sứ Kết nối · Nhà phát minh · Top Earner · Zalopay Star)
-- 6 store items (Ngày phép · Grab voucher · Udemy · AirPods Pro · Spa · AWS cert)
-- 4 system broadcast messages
+| `TEAMS_WEBHOOK_SECRET` | HMAC secret cho Outgoing Webhook |
