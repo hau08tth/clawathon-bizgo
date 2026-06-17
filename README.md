@@ -4,7 +4,7 @@
 
 ---
 
-## Mô tả ngắn (dùng cho form nộp bài)
+## Mô tả ngắn về BizGro
 
 Một công ty 5.000 nhân viên đang ngồi trên một mỏ vàng tăng trưởng — và không biết.
 
