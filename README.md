@@ -6,9 +6,7 @@
 
 ## Mô tả ngắn về BizGro
 
-Một công ty 5.000 nhân viên đang ngồi trên một mỏ vàng tăng trưởng — và không biết.
-
-95% nhân viên không thuộc Sales nhưng có thứ mà Sales phải mất hàng tháng mới xây dựng được: mạng lưới quan hệ thực, sự tin tưởng từ bạn bè và đối tác, cùng sự hiểu biết sâu về sản phẩm. Vấn đề không phải họ không muốn đóng góp — mà là **không biết bắt đầu từ đâu, không có công cụ, và không có lý do đủ mạnh để hành động**.
+Một công ty 5.000 nhân viên đang ngồi trên một mỏ vàng tăng trưởng và không biết 95% nhân viên không thuộc Sales nhưng có thứ mà Sales phải mất hàng tháng mới xây dựng được: mạng lưới quan hệ thực, sự tin tưởng từ bạn bè và đối tác, cùng sự hiểu biết sâu về sản phẩm. Vấn đề không phải họ không muốn đóng góp — mà là **không biết bắt đầu từ đâu, không có công cụ, và không có lý do đủ mạnh để hành động**.
 
 **BizGro** giải quyết cả ba rào cản đó bằng kiến trúc **4 AI agent chuyên biệt**:
 
