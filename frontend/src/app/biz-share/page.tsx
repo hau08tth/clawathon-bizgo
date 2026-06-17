@@ -6,6 +6,7 @@ import { useAppStore } from "@/lib/store";
 import toast from "react-hot-toast";
 import { Share2, Copy, ExternalLink, Zap, Facebook, Linkedin } from "lucide-react";
 import { cn, formatDate } from "@/lib/utils";
+import { MarkdownText } from "@/components/shared/MarkdownText";
 
 interface Campaign {
   id: string;
@@ -273,7 +274,7 @@ export default function BizSharePage() {
                           </button>
                         </div>
                       </div>
-                      <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-wrap">{post.content}</p>
+                      <MarkdownText text={post.content} className="text-sm text-gray-700" />
                       {post.hashtags?.length > 0 && (
                         <p className="text-xs text-blue-500 mt-2">{post.hashtags.join(" ")}</p>
                       )}

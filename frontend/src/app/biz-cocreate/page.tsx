@@ -6,6 +6,7 @@ import { useAppStore } from "@/lib/store";
 import toast from "react-hot-toast";
 import { Lightbulb, Zap, ChevronDown, ChevronUp, TrendingUp, BarChart3 } from "lucide-react";
 import { cn, formatDate } from "@/lib/utils";
+import { MarkdownText } from "@/components/shared/MarkdownText";
 
 interface Idea {
   id: string;
@@ -254,9 +255,7 @@ export default function BizCoCreatePage() {
                                 <TrendingUp className="w-4 h-4 text-emerald-600" />
                                 <p className="text-sm font-bold text-emerald-800">Business Proposal</p>
                               </div>
-                              <p className="text-sm text-emerald-800 whitespace-pre-wrap leading-relaxed">
-                                {idea.enhanced_proposal}
-                              </p>
+                              <MarkdownText text={idea.enhanced_proposal} className="text-sm text-emerald-800" />
                             </div>
                             {idea.market_analysis && (
                               <div className="bg-blue-50 rounded-2xl p-4">
@@ -264,9 +263,7 @@ export default function BizCoCreatePage() {
                                   <BarChart3 className="w-4 h-4 text-blue-600" />
                                   <p className="text-sm font-bold text-blue-800">Phân tích thị trường</p>
                                 </div>
-                                <p className="text-sm text-blue-800 whitespace-pre-wrap leading-relaxed">
-                                  {idea.market_analysis}
-                                </p>
+                                <MarkdownText text={idea.market_analysis || ""} className="text-sm text-blue-800" />
                               </div>
                             )}
                           </div>

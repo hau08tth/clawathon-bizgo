@@ -87,7 +87,7 @@ Trả về JSON với format:
         response = await self.client.chat.completions.create(
             model=self.model,
             messages=[{"role": "user", "content": prompt}],
-            max_tokens=2000,
+            max_tokens=1200,
             response_format={"type": "json_object"},
         )
 
