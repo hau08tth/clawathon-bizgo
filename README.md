@@ -10,7 +10,7 @@ Mọi doanh nghiệp đều đang lãng phí một "mỏ vàng" vô giá: **95% 
 ---
 
 ## 💡 Giải pháp đột phá
-**BizGro** là nền tảng AI Agent tiên phong phá vỡ rào cản phòng ban để biến 100% nhân sự thành lực lượng tăng trưởng tổng lực nhờ 4 trụ cột:
+**BizGro** là nền tảng AI Multi-Agent tiên phong phá vỡ rào cản phòng ban để biến 100% nhân sự thành lực lượng tăng trưởng tổng lực nhờ 4 agents:
 
 * **🚀 BIZ-SHARE:** AI tự động hóa việc sáng tạo và cá nhân hóa nội dung chia sẻ sản phẩm trong vài giây.
 * **🤝 BIZ-CONNECT:** Số hóa và đo lường mạng lưới quan hệ cá nhân thành nguồn khách hàng tiềm năng chất lượng.
