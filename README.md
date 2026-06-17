@@ -1,24 +1,50 @@
-# BizGro — Business Growth from Within
+# 🚀 BizGro — Biến Mọi Nhân Viên Thành Động Cơ Tăng Trưởng
 
 > Every Employee a Growth Engine — Khi mỗi nhân viên là một động cơ tăng trưởng
 
 ---
 
-## Mô tả ngắn về BizGro
+## 📌 Vấn đề
+Mỗi doanh nghiệp đang ngồi trên một mỏ vàng tăng trưởng nhưng chưa được khai thác.
 
-Một công ty 5.000 nhân viên đang ngồi trên một mỏ vàng tăng trưởng và không biết 95% nhân viên không thuộc Sales nhưng có thứ mà Sales phải mất hàng tháng mới xây dựng được: mạng lưới quan hệ thực, sự tin tưởng từ bạn bè và đối tác, cùng sự hiểu biết sâu về sản phẩm. Vấn đề không phải họ không muốn đóng góp — mà là **không biết bắt đầu từ đâu, không có công cụ, và không có lý do đủ mạnh để hành động**.
+**95% nhân viên không thuộc bộ phận Sales**, nhưng họ lại sở hữu những tài sản quý giá nhất: 
+* Mạng lưới quan hệ thực tế.
+* Sự tin tưởng cá nhân từ bạn bè, đối tác.
+* Hiểu biết sâu sắc về sản phẩm.
+* Những ý tưởng sáng tạo có thể tạo ra giá trị mới.
 
-**BizGro** giải quyết cả ba rào cản đó bằng kiến trúc **4 AI agent chuyên biệt**:
+Tuy nhiên, phần lớn tiềm năng này đang bị bỏ ngỏ vì nhân viên thường **không biết bắt đầu từ đâu, thiếu công cụ hỗ trợ và thiếu động lực** để tham gia vào quá trình tăng trưởng chung.
 
-**BIZ-SHARE** — Nhân viên chọn chiến dịch, nhấn một nút. Trong vòng 30 giây, **ContentAgent** tạo ra 3 bài viết được cá nhân hóa theo phong cách riêng của họ (hài hước / chuyên nghiệp / chân thật), kèm mã affiliate để track từng chuyển đổi. Từ "tôi không biết viết gì" đến bài đăng sẵn sàng — 30 giây.
+---
 
-**BIZ-CONNECT** — Nhân viên paste danh sách liên hệ. **NetworkAgent** phân tích từng người, match với ICP của Zalopay, rồi tự động viết Ice-breaker và Pitching Script cá nhân hóa cho từng contact. Mạng lưới quan hệ cá nhân trở thành pipeline sales có thể đo được.
+## 💡 Giải pháp
+**BizGro** là nền tảng AI Agent được xây dựng trên **GreenNode AgentBase**, giúp mọi nhân viên trong doanh nghiệp đều có thể đóng góp trực tiếp và dễ dàng vào sự tăng trưởng của công ty thông qua 4 tính năng lõi:
 
-**BIZ-COCREATE** — Nhân viên viết ý tưởng thô bằng ngôn ngữ tự nhiên. **IdeaAgent** chạy 3 LLM call tuần tự: tăng cường thành Business Proposal hoàn chỉnh → phân tích TAM/SAM/SOM và dự phóng doanh thu → chấm điểm khả thi/chi phí/tiềm năng. Ý tưởng "nháp trên giấy" thành hồ sơ trình Ban Giám Đốc — tự động.
+### 🚀 BIZ-SHARE
+> Tạo nội dung cá nhân hóa và chia sẻ sản phẩm chỉ trong vài giây bằng AI.
 
-**Community & Teams Bot** — **ChatAgent** tích hợp ngay trong Microsoft Teams và ứng dụng, trả lời mọi câu hỏi về điểm thưởng, xu hướng, chiến dịch với context real-time từ leaderboard và hệ thống.
+### 🤝 BIZ-CONNECT
+> Biến mạng lưới quan hệ cá nhân thành nguồn khách hàng tiềm năng (Leads) có thể theo dõi và đo lường được.
 
-Toàn bộ được gamify: BizCoins, bảng xếp hạng, huy hiệu, và BizStore đổi quà thực tế. Nhưng quan trọng hơn — **BizGro thay đổi hành vi**. Khi mỗi nhân viên đều có thể tạo content, kết nối khách hàng, và đề xuất ý tưởng chỉ trong vài phút, tăng trưởng không còn là bài toán của riêng Sales nữa. Đó là bài toán của cả công ty — và AI đang giải nó từng ngày.
+### 💡 BIZ-COCREATE
+> Chuyển các ý tưởng thô thành đề xuất kinh doanh hoàn chỉnh nhờ hệ thống phân tích và đánh giá tự động.
+
+### 🎯 Community & Teams Bot
+> AI Coach hoạt động theo thời gian thực (real-time), gợi ý chính xác cho nhân viên biết hành động nào sẽ tạo ra tác động lớn nhất.
+
+---
+
+## 💎 Giá trị mang lại
+
+BizGro loại bỏ hoàn toàn rào cản giữa nhân viên và sự tăng trưởng của doanh nghiệp bằng cách kết hợp:
+`AI` + `Gamification (Trò chơi hóa)` + `BizCoins` + `Hệ thống ghi nhận minh bạch`
+
+| Mô hình truyền thống | Mô hình tăng trưởng cùng BizGro |
+| :--- | :--- |
+| Gánh nặng doanh thu đè nặng lên 5% nhân sự thuộc phòng Sales. | Kích hoạt sức mạnh tổng lực của **100% bộ phận** trong tổ chức. |
+| Tiềm năng truyền thông và quan hệ của nhân viên bị lãng quên. | Lan tỏa sản phẩm, tìm kiếm khách hàng và đột phá ý tưởng tự động. |
+
+> **Cốt lõi:** Tăng trưởng không còn là nhiệm vụ của riêng một phòng ban. Với BizGro, cả công ty trở thành một đội ngũ tăng trưởng đồng nhất được vận hành và tối ưu bởi AI.
 
 ---
 
