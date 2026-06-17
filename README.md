@@ -4,23 +4,23 @@
 
 ---
 
-## Mô tả ngắn (300 từ — dùng cho form nộp bài)
+## Mô tả ngắn (dùng cho form nộp bài)
 
-**Vấn đề:** Đội ngũ Sales tại các công ty fintech như Zalopay chỉ chiếm ~5% nhân sự, nhưng phải gánh toàn bộ mục tiêu tăng trưởng. 95% nhân viên còn lại — kỹ sư, designer, vận hành — có mạng lưới quan hệ rộng và hiểu sản phẩm sâu, nhưng không có công cụ hay động lực để biến điều đó thành doanh thu thực sự. Kết quả: nguồn lực tăng trưởng khổng lồ bị lãng phí mỗi ngày.
+Một công ty 5.000 nhân viên đang ngồi trên một mỏ vàng tăng trưởng — và không biết.
 
-**Người dùng:** Toàn bộ nhân viên Zalopay — không chỉ Sales — đặc biệt là những người có mạng lưới quan hệ B2B hoặc ý tưởng cải tiến sản phẩm nhưng chưa có kênh để hành động.
+95% nhân viên không thuộc Sales nhưng có thứ mà Sales phải mất hàng tháng mới xây dựng được: mạng lưới quan hệ thực, sự tin tưởng từ bạn bè và đối tác, cùng sự hiểu biết sâu về sản phẩm. Vấn đề không phải họ không muốn đóng góp — mà là **không biết bắt đầu từ đâu, không có công cụ, và không có lý do đủ mạnh để hành động**.
 
-**Giải pháp AI:** BizGro là nền tảng multi-agent biến mỗi nhân viên thành một "growth engine" thông qua 4 agent AI chuyên biệt:
+**BizGro** giải quyết cả ba rào cản đó bằng kiến trúc **4 AI agent chuyên biệt**, chạy trên nền tảng GreenNode AgentBase:
 
-- **ContentAgent (BIZ-SHARE):** Nhân viên chọn chiến dịch, AI tự động tạo 3 phiên bản bài viết được cá nhân hóa theo phong cách của từng người (hài hước / chuyên nghiệp / tâm sự) kèm mã affiliate để track chuyển đổi — từ 0 đến bài viết sẵn sàng đăng chỉ trong 30 giây.
+**BIZ-SHARE** — Nhân viên chọn chiến dịch, nhấn một nút. Trong vòng 30 giây, **ContentAgent** tạo ra 3 bài viết được cá nhân hóa theo phong cách riêng của họ (hài hước / chuyên nghiệp / chân thật), kèm mã affiliate để track từng chuyển đổi. Từ "tôi không biết viết gì" đến bài đăng sẵn sàng — 30 giây.
 
-- **NetworkAgent (BIZ-CONNECT):** Nhân viên nhập danh sách liên hệ, AI phân tích và match với ICP của Zalopay, tự động viết Ice-breaker và Pitching Script cá nhân hóa — biến mạng lưới quan hệ thành pipeline sales thực sự.
+**BIZ-CONNECT** — Nhân viên paste danh sách liên hệ. **NetworkAgent** phân tích từng người, match với ICP của Zalopay, rồi tự động viết Ice-breaker và Pitching Script cá nhân hóa cho từng contact. Mạng lưới quan hệ cá nhân trở thành pipeline sales có thể đo được.
 
-- **IdeaAgent (BIZ-COCREATE):** Nhân viên gửi ý tưởng thô bằng ngôn ngữ tự nhiên, AI qua 3 bước (tăng cường → phân tích thị trường → chấm điểm) tự động nâng thành Business Proposal hoàn chỉnh gửi lên Ban Giám Đốc.
+**BIZ-COCREATE** — Nhân viên viết ý tưởng thô bằng ngôn ngữ tự nhiên. **IdeaAgent** chạy 3 LLM call tuần tự: tăng cường thành Business Proposal hoàn chỉnh → phân tích TAM/SAM/SOM và dự phóng doanh thu → chấm điểm khả thi/chi phí/tiềm năng. Ý tưởng "nháp trên giấy" thành hồ sơ trình Ban Giám Đốc — tự động.
 
-- **ChatAgent (Community + Teams Bot):** Chatbot context-aware tích hợp ngay trong ứng dụng và Microsoft Teams — trả lời câu hỏi về điểm, trends, chiến dịch, phần thưởng theo thời gian thực.
+**Community & Teams Bot** — **ChatAgent** tích hợp ngay trong Microsoft Teams và ứng dụng, trả lời mọi câu hỏi về điểm thưởng, xu hướng, chiến dịch với context real-time từ leaderboard và hệ thống.
 
-**Giá trị mang lại:** Toàn bộ hành động được gamify với BizCoins — nhân viên kiếm điểm, leo bảng xếp hạng, đổi quà thực tế. BizGro không chỉ là công cụ AI — đây là hệ sinh thái tăng trưởng từ bên trong, nơi mỗi nhân viên đều có thể đóng góp vào doanh thu của công ty.
+Toàn bộ được gamify: BizCoins, bảng xếp hạng, huy hiệu, và BizStore đổi quà thực tế. Nhưng quan trọng hơn — **BizGro thay đổi hành vi**. Khi mỗi nhân viên đều có thể tạo content, kết nối khách hàng, và đề xuất ý tưởng chỉ trong vài phút, tăng trưởng không còn là bài toán của riêng Sales nữa. Đó là bài toán của cả công ty — và AI đang giải nó từng ngày.
 
 ---
 
